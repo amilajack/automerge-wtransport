@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "documents": 1734,
+  "verified_with": "@automerge/automerge 3.2.0",
+  "checks": [
+    "snapshot heads match both endpoints",
+    "done/finished persisted",
+    "request and response match"
+  ]
+}

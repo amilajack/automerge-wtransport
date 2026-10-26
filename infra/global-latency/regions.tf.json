@@ -1,0 +1,1212 @@
+{
+  "terraform": {
+    "required_version": ">= 1.5.7",
+    "required_providers": {
+      "aws": {
+        "source": "hashicorp/aws",
+        "version": "~> 6.0"
+      }
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "region": "us-west-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "ap_northeast_1",
+        "region": "ap-northeast-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "ap_northeast_2",
+        "region": "ap-northeast-2",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "ap_northeast_3",
+        "region": "ap-northeast-3",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "ap_south_1",
+        "region": "ap-south-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "ap_southeast_1",
+        "region": "ap-southeast-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "ap_southeast_2",
+        "region": "ap-southeast-2",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "ca_central_1",
+        "region": "ca-central-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "eu_central_1",
+        "region": "eu-central-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "eu_north_1",
+        "region": "eu-north-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "eu_west_1",
+        "region": "eu-west-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "eu_west_2",
+        "region": "eu-west-2",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "eu_west_3",
+        "region": "eu-west-3",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "sa_east_1",
+        "region": "sa-east-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "us_east_1",
+        "region": "us-east-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "us_east_2",
+        "region": "us-east-2",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "us_west_1",
+        "region": "us-west-1",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      },
+      {
+        "alias": "us_west_2",
+        "region": "us-west-2",
+        "default_tags": [
+          {
+            "tags": {
+              "Project": "automerge-wtransport-global",
+              "Experiment": "amwt-global-589ee3ad"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "resource": {
+    "aws_ecr_repository": {
+      "ap_northeast_1": {
+        "provider": "aws.ap_northeast_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "ap_northeast_2": {
+        "provider": "aws.ap_northeast_2",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "ap_northeast_3": {
+        "provider": "aws.ap_northeast_3",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "ap_south_1": {
+        "provider": "aws.ap_south_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "ap_southeast_1": {
+        "provider": "aws.ap_southeast_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "ap_southeast_2": {
+        "provider": "aws.ap_southeast_2",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "ca_central_1": {
+        "provider": "aws.ca_central_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "eu_central_1": {
+        "provider": "aws.eu_central_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "eu_north_1": {
+        "provider": "aws.eu_north_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "eu_west_1": {
+        "provider": "aws.eu_west_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "eu_west_2": {
+        "provider": "aws.eu_west_2",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "eu_west_3": {
+        "provider": "aws.eu_west_3",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "sa_east_1": {
+        "provider": "aws.sa_east_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "us_east_1": {
+        "provider": "aws.us_east_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "us_east_2": {
+        "provider": "aws.us_east_2",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "us_west_1": {
+        "provider": "aws.us_west_1",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      },
+      "us_west_2": {
+        "provider": "aws.us_west_2",
+        "name": "${var.name}",
+        "force_delete": true,
+        "image_tag_mutability": "IMMUTABLE",
+        "image_scanning_configuration": [
+          {
+            "scan_on_push": true
+          }
+        ]
+      }
+    },
+    "aws_ecr_repository_policy": {
+      "ap_northeast_1": {
+        "provider": "aws.ap_northeast_1",
+        "repository": "${aws_ecr_repository.ap_northeast_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "ap_northeast_2": {
+        "provider": "aws.ap_northeast_2",
+        "repository": "${aws_ecr_repository.ap_northeast_2.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "ap_northeast_3": {
+        "provider": "aws.ap_northeast_3",
+        "repository": "${aws_ecr_repository.ap_northeast_3.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "ap_south_1": {
+        "provider": "aws.ap_south_1",
+        "repository": "${aws_ecr_repository.ap_south_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "ap_southeast_1": {
+        "provider": "aws.ap_southeast_1",
+        "repository": "${aws_ecr_repository.ap_southeast_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "ap_southeast_2": {
+        "provider": "aws.ap_southeast_2",
+        "repository": "${aws_ecr_repository.ap_southeast_2.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "ca_central_1": {
+        "provider": "aws.ca_central_1",
+        "repository": "${aws_ecr_repository.ca_central_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "eu_central_1": {
+        "provider": "aws.eu_central_1",
+        "repository": "${aws_ecr_repository.eu_central_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "eu_north_1": {
+        "provider": "aws.eu_north_1",
+        "repository": "${aws_ecr_repository.eu_north_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "eu_west_1": {
+        "provider": "aws.eu_west_1",
+        "repository": "${aws_ecr_repository.eu_west_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "eu_west_2": {
+        "provider": "aws.eu_west_2",
+        "repository": "${aws_ecr_repository.eu_west_2.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "eu_west_3": {
+        "provider": "aws.eu_west_3",
+        "repository": "${aws_ecr_repository.eu_west_3.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "sa_east_1": {
+        "provider": "aws.sa_east_1",
+        "repository": "${aws_ecr_repository.sa_east_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "us_east_1": {
+        "provider": "aws.us_east_1",
+        "repository": "${aws_ecr_repository.us_east_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "us_east_2": {
+        "provider": "aws.us_east_2",
+        "repository": "${aws_ecr_repository.us_east_2.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "us_west_1": {
+        "provider": "aws.us_west_1",
+        "repository": "${aws_ecr_repository.us_west_1.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      },
+      "us_west_2": {
+        "provider": "aws.us_west_2",
+        "repository": "${aws_ecr_repository.us_west_2.name}",
+        "policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"LambdaImageRetrieval\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": [\"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\"]}]}"
+      }
+    },
+    "aws_cloudwatch_log_group": {
+      "ap_northeast_1": {
+        "provider": "aws.ap_northeast_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "ap_northeast_2": {
+        "provider": "aws.ap_northeast_2",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "ap_northeast_3": {
+        "provider": "aws.ap_northeast_3",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "ap_south_1": {
+        "provider": "aws.ap_south_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "ap_southeast_1": {
+        "provider": "aws.ap_southeast_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "ap_southeast_2": {
+        "provider": "aws.ap_southeast_2",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "ca_central_1": {
+        "provider": "aws.ca_central_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "eu_central_1": {
+        "provider": "aws.eu_central_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "eu_north_1": {
+        "provider": "aws.eu_north_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "eu_west_1": {
+        "provider": "aws.eu_west_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "eu_west_2": {
+        "provider": "aws.eu_west_2",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "eu_west_3": {
+        "provider": "aws.eu_west_3",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "sa_east_1": {
+        "provider": "aws.sa_east_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "us_east_1": {
+        "provider": "aws.us_east_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "us_east_2": {
+        "provider": "aws.us_east_2",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "us_west_1": {
+        "provider": "aws.us_west_1",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      },
+      "us_west_2": {
+        "provider": "aws.us_west_2",
+        "name": "/aws/lambda/${var.name}",
+        "retention_in_days": 3
+      }
+    },
+    "aws_lambda_function": {
+      "ap_northeast_1": {
+        "provider": "aws.ap_northeast_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-northeast-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.ap_northeast_1.repository_url}@${data.aws_ecr_image.ap_northeast_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.ap_northeast_1",
+          "aws_ecr_repository_policy.ap_northeast_1"
+        ]
+      },
+      "ap_northeast_2": {
+        "provider": "aws.ap_northeast_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-northeast-2\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.ap_northeast_2.repository_url}@${data.aws_ecr_image.ap_northeast_2[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.ap_northeast_2",
+          "aws_ecr_repository_policy.ap_northeast_2"
+        ]
+      },
+      "ap_northeast_3": {
+        "provider": "aws.ap_northeast_3",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-northeast-3\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.ap_northeast_3.repository_url}@${data.aws_ecr_image.ap_northeast_3[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.ap_northeast_3",
+          "aws_ecr_repository_policy.ap_northeast_3"
+        ]
+      },
+      "ap_south_1": {
+        "provider": "aws.ap_south_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-south-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.ap_south_1.repository_url}@${data.aws_ecr_image.ap_south_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.ap_south_1",
+          "aws_ecr_repository_policy.ap_south_1"
+        ]
+      },
+      "ap_southeast_1": {
+        "provider": "aws.ap_southeast_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-southeast-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.ap_southeast_1.repository_url}@${data.aws_ecr_image.ap_southeast_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.ap_southeast_1",
+          "aws_ecr_repository_policy.ap_southeast_1"
+        ]
+      },
+      "ap_southeast_2": {
+        "provider": "aws.ap_southeast_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-southeast-2\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.ap_southeast_2.repository_url}@${data.aws_ecr_image.ap_southeast_2[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.ap_southeast_2",
+          "aws_ecr_repository_policy.ap_southeast_2"
+        ]
+      },
+      "ca_central_1": {
+        "provider": "aws.ca_central_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ca-central-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.ca_central_1.repository_url}@${data.aws_ecr_image.ca_central_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.ca_central_1",
+          "aws_ecr_repository_policy.ca_central_1"
+        ]
+      },
+      "eu_central_1": {
+        "provider": "aws.eu_central_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-central-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.eu_central_1.repository_url}@${data.aws_ecr_image.eu_central_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.eu_central_1",
+          "aws_ecr_repository_policy.eu_central_1"
+        ]
+      },
+      "eu_north_1": {
+        "provider": "aws.eu_north_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-north-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.eu_north_1.repository_url}@${data.aws_ecr_image.eu_north_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.eu_north_1",
+          "aws_ecr_repository_policy.eu_north_1"
+        ]
+      },
+      "eu_west_1": {
+        "provider": "aws.eu_west_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-west-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.eu_west_1.repository_url}@${data.aws_ecr_image.eu_west_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.eu_west_1",
+          "aws_ecr_repository_policy.eu_west_1"
+        ]
+      },
+      "eu_west_2": {
+        "provider": "aws.eu_west_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-west-2\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.eu_west_2.repository_url}@${data.aws_ecr_image.eu_west_2[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.eu_west_2",
+          "aws_ecr_repository_policy.eu_west_2"
+        ]
+      },
+      "eu_west_3": {
+        "provider": "aws.eu_west_3",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-west-3\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.eu_west_3.repository_url}@${data.aws_ecr_image.eu_west_3[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.eu_west_3",
+          "aws_ecr_repository_policy.eu_west_3"
+        ]
+      },
+      "sa_east_1": {
+        "provider": "aws.sa_east_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"sa-east-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.sa_east_1.repository_url}@${data.aws_ecr_image.sa_east_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.sa_east_1",
+          "aws_ecr_repository_policy.sa_east_1"
+        ]
+      },
+      "us_east_1": {
+        "provider": "aws.us_east_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"us-east-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.us_east_1.repository_url}@${data.aws_ecr_image.us_east_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.us_east_1",
+          "aws_ecr_repository_policy.us_east_1"
+        ]
+      },
+      "us_east_2": {
+        "provider": "aws.us_east_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"us-east-2\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.us_east_2.repository_url}@${data.aws_ecr_image.us_east_2[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.us_east_2",
+          "aws_ecr_repository_policy.us_east_2"
+        ]
+      },
+      "us_west_1": {
+        "provider": "aws.us_west_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"us-west-1\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.us_west_1.repository_url}@${data.aws_ecr_image.us_west_1[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.us_west_1",
+          "aws_ecr_repository_policy.us_west_1"
+        ]
+      },
+      "us_west_2": {
+        "provider": "aws.us_west_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"us-west-2\")) ? 1 : 0}",
+        "function_name": "${var.name}",
+        "role": "${aws_iam_role.lambda.arn}",
+        "package_type": "Image",
+        "image_uri": "${aws_ecr_repository.us_west_2.repository_url}@${data.aws_ecr_image.us_west_2[0].image_digest}",
+        "architectures": [
+          "arm64"
+        ],
+        "memory_size": 256,
+        "timeout": 150,
+        "environment": [
+          {
+            "variables": {
+              "RELAY_URL": "https://${aws_instance.relay.public_ip}:4433",
+              "EXPERIMENT_TOKEN": "${var.experiment_token}",
+              "CERTIFICATE_HASH": "${var.certificate_hash}"
+            }
+          }
+        ],
+        "depends_on": [
+          "aws_iam_role_policy_attachment.lambda_logs",
+          "aws_cloudwatch_log_group.us_west_2",
+          "aws_ecr_repository_policy.us_west_2"
+        ]
+      }
+    }
+  },
+  "data": {
+    "aws_ecr_image": {
+      "ap_northeast_1": {
+        "provider": "aws.ap_northeast_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-northeast-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.ap_northeast_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "ap_northeast_2": {
+        "provider": "aws.ap_northeast_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-northeast-2\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.ap_northeast_2.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "ap_northeast_3": {
+        "provider": "aws.ap_northeast_3",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-northeast-3\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.ap_northeast_3.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "ap_south_1": {
+        "provider": "aws.ap_south_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-south-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.ap_south_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "ap_southeast_1": {
+        "provider": "aws.ap_southeast_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-southeast-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.ap_southeast_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "ap_southeast_2": {
+        "provider": "aws.ap_southeast_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ap-southeast-2\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.ap_southeast_2.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "ca_central_1": {
+        "provider": "aws.ca_central_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"ca-central-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.ca_central_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "eu_central_1": {
+        "provider": "aws.eu_central_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-central-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.eu_central_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "eu_north_1": {
+        "provider": "aws.eu_north_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-north-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.eu_north_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "eu_west_1": {
+        "provider": "aws.eu_west_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-west-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.eu_west_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "eu_west_2": {
+        "provider": "aws.eu_west_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-west-2\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.eu_west_2.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "eu_west_3": {
+        "provider": "aws.eu_west_3",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"eu-west-3\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.eu_west_3.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "sa_east_1": {
+        "provider": "aws.sa_east_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"sa-east-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.sa_east_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "us_east_1": {
+        "provider": "aws.us_east_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"us-east-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.us_east_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "us_east_2": {
+        "provider": "aws.us_east_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"us-east-2\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.us_east_2.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "us_west_1": {
+        "provider": "aws.us_west_1",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"us-west-1\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.us_west_1.name}",
+        "image_tag": "${var.image_tag}"
+      },
+      "us_west_2": {
+        "provider": "aws.us_west_2",
+        "count": "${var.enable_functions && (length(var.regions_to_enable) == 0 || contains(var.regions_to_enable, \"us-west-2\")) ? 1 : 0}",
+        "repository_name": "${aws_ecr_repository.us_west_2.name}",
+        "image_tag": "${var.image_tag}"
+      }
+    }
+  },
+  "output": {
+    "repositories": {
+      "value": {
+        "ap-northeast-1": "${aws_ecr_repository.ap_northeast_1.repository_url}",
+        "ap-northeast-2": "${aws_ecr_repository.ap_northeast_2.repository_url}",
+        "ap-northeast-3": "${aws_ecr_repository.ap_northeast_3.repository_url}",
+        "ap-south-1": "${aws_ecr_repository.ap_south_1.repository_url}",
+        "ap-southeast-1": "${aws_ecr_repository.ap_southeast_1.repository_url}",
+        "ap-southeast-2": "${aws_ecr_repository.ap_southeast_2.repository_url}",
+        "ca-central-1": "${aws_ecr_repository.ca_central_1.repository_url}",
+        "eu-central-1": "${aws_ecr_repository.eu_central_1.repository_url}",
+        "eu-north-1": "${aws_ecr_repository.eu_north_1.repository_url}",
+        "eu-west-1": "${aws_ecr_repository.eu_west_1.repository_url}",
+        "eu-west-2": "${aws_ecr_repository.eu_west_2.repository_url}",
+        "eu-west-3": "${aws_ecr_repository.eu_west_3.repository_url}",
+        "sa-east-1": "${aws_ecr_repository.sa_east_1.repository_url}",
+        "us-east-1": "${aws_ecr_repository.us_east_1.repository_url}",
+        "us-east-2": "${aws_ecr_repository.us_east_2.repository_url}",
+        "us-west-1": "${aws_ecr_repository.us_west_1.repository_url}",
+        "us-west-2": "${aws_ecr_repository.us_west_2.repository_url}"
+      }
+    },
+    "functions": {
+      "value": {
+        "ap-northeast-1": "${try(aws_lambda_function.ap_northeast_1[0].function_name, null)}",
+        "ap-northeast-2": "${try(aws_lambda_function.ap_northeast_2[0].function_name, null)}",
+        "ap-northeast-3": "${try(aws_lambda_function.ap_northeast_3[0].function_name, null)}",
+        "ap-south-1": "${try(aws_lambda_function.ap_south_1[0].function_name, null)}",
+        "ap-southeast-1": "${try(aws_lambda_function.ap_southeast_1[0].function_name, null)}",
+        "ap-southeast-2": "${try(aws_lambda_function.ap_southeast_2[0].function_name, null)}",
+        "ca-central-1": "${try(aws_lambda_function.ca_central_1[0].function_name, null)}",
+        "eu-central-1": "${try(aws_lambda_function.eu_central_1[0].function_name, null)}",
+        "eu-north-1": "${try(aws_lambda_function.eu_north_1[0].function_name, null)}",
+        "eu-west-1": "${try(aws_lambda_function.eu_west_1[0].function_name, null)}",
+        "eu-west-2": "${try(aws_lambda_function.eu_west_2[0].function_name, null)}",
+        "eu-west-3": "${try(aws_lambda_function.eu_west_3[0].function_name, null)}",
+        "sa-east-1": "${try(aws_lambda_function.sa_east_1[0].function_name, null)}",
+        "us-east-1": "${try(aws_lambda_function.us_east_1[0].function_name, null)}",
+        "us-east-2": "${try(aws_lambda_function.us_east_2[0].function_name, null)}",
+        "us-west-1": "${try(aws_lambda_function.us_west_1[0].function_name, null)}",
+        "us-west-2": "${try(aws_lambda_function.us_west_2[0].function_name, null)}"
+      }
+    },
+    "relay_ip": {
+      "value": "${aws_instance.relay.public_ip}"
+    },
+    "relay_instance": {
+      "value": "${aws_instance.relay.id}"
+    }
+  }
+}

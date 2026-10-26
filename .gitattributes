@@ -1,0 +1,4 @@
+* text=auto
+*.automerge binary
+*.png binary
+docs/benchmarks/** linguist-generated=true

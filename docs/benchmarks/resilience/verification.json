@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "attempts": 48,
+  "converged": 42,
+  "failure_classes": {
+    "document_queue_full": 4,
+    "stream_cancelled_or_overloaded": 2
+  },
+  "completed_reconnects": 141,
+  "checks": [
+    "successful attempts performed in-run equal-head/content/acknowledgement checks in real Chromium",
+    "every generated measured edit observed on successful attempts",
+    "all six failure logs retained and classified without attributing ambiguous cancellations",
+    "all blackout schedules completed and fresh recovery observed",
+    "exact measured source archives match component fingerprints"
+  ]
+}

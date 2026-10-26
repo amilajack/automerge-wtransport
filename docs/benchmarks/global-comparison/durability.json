@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "document": "e22757a2-000e-448e-adaf-47cfae889c7b",
+  "original_transport": "websocket",
+  "expected_heads": [
+    "305320b05a6e9ebdae1ac23ef4dabec898d5b141c4f8fdd6c23ff2c472e59516"
+  ],
+  "fresh_after_restart": {
+    "acknowledged": true,
+    "document": "e22757a2-000e-448e-adaf-47cfae889c7b",
+    "heads": [
+      "305320b05a6e9ebdae1ac23ef4dabec898d5b141c4f8fdd6c23ff2c472e59516"
+    ],
+    "text": ""
+  }
+}

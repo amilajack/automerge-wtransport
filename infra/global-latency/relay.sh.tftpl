@@ -1,0 +1,40 @@
+#!/bin/bash
+set -euxo pipefail
+apt-get -o DPkg::Lock::Timeout=120 update
+apt-get -o DPkg::Lock::Timeout=120 install -y curl unzip ca-certificates
+curl -fsS --retry 3 https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip -o /tmp/awscliv2.zip
+unzip -q /tmp/awscliv2.zip -d /tmp
+/tmp/aws/install --update
+rm -rf /tmp/aws /tmp/awscliv2.zip
+useradd --system --home /var/lib/amwt-global --shell /usr/sbin/nologin amwt-global
+install -d -m 755 /opt/amwt-global
+install -d -m 700 -o amwt-global -g amwt-global /var/lib/amwt-global
+aws s3 cp s3://${bucket}/relay.tgz /tmp/relay.tgz --region us-west-1
+tar xzf /tmp/relay.tgz -C /opt/amwt-global
+rm /tmp/relay.tgz
+chmod 755 /opt/amwt-global/server
+chown root:amwt-global /opt/amwt-global/key.pem
+chmod 640 /opt/amwt-global/key.pem
+chmod 600 /opt/amwt-global/server.env
+cat > /etc/systemd/system/amwt-global.service <<'UNIT'
+[Unit]
+Description=Dedicated global WebTransport benchmark relay
+After=network-online.target
+[Service]
+User=amwt-global
+Group=amwt-global
+WorkingDirectory=/opt/amwt-global
+EnvironmentFile=/opt/amwt-global/server.env
+ExecStart=/opt/amwt-global/server
+MemoryMax=1G
+CPUQuota=100%
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/amwt-global
+Restart=no
+[Install]
+WantedBy=multi-user.target
+UNIT
+systemctl daemon-reload
+systemctl enable --now amwt-global

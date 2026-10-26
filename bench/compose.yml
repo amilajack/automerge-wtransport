@@ -1,0 +1,55 @@
+name: automerge-wtransport-lab
+services:
+  router:
+    image: debian:bookworm-slim
+    cap_add: [NET_ADMIN]
+    sysctls: {net.ipv4.ip_forward: '1'}
+    command: ['sh','-c','apt-get update -qq && apt-get install -y -qq iproute2 iputils-ping ethtool && touch /ready && sleep infinity']
+    networks:
+      servernet: {ipv4_address: 172.29.81.1}
+      clientnet: {ipv4_address: 172.29.82.1}
+    healthcheck: {test: ['CMD','test','-e','/ready'], interval: 2s, timeout: 1s, retries: 90}
+  server:
+    build: {context: '..',target: server}
+    cap_add: [NET_ADMIN]
+    cpus: 1
+    mem_limit: 1g
+    environment:
+      EXPERIMENT_TOKEN: ${EXPERIMENT_TOKEN:-local-experiment-token}
+      QUEUE_CAPACITY: ${QUEUE_CAPACITY:-8}
+      DATA_DIR: /data
+      CERT: /certs/cert.pem
+      KEY: /certs/key.pem
+      CERT_HASH: /certs/hash.hex
+    entrypoint: ['sh','-c','set -e; ip route add 172.29.82.0/24 via 172.29.81.1; for device in $$(ip -o link show | cut -d " " -f2 | cut -d: -f1 | cut -d@ -f1); do if [ "$$device" != lo ]; then ethtool -K "$$device" gro off gso off tso off; fi; done; exec /app/server']
+    volumes: ['../certs:/certs:ro']
+    networks: {servernet: {ipv4_address: 172.29.81.2}}
+    depends_on: {router: {condition: service_healthy}}
+  clients:
+    build: {context: '..',target: clients}
+    cap_add: [NET_ADMIN]
+    cpus: 4
+    mem_limit: 5g
+    shm_size: 1g
+    entrypoint: ['sh','-c','set -e; ip route add 172.29.81.0/24 via 172.29.82.1; for device in $$(ip -o link show | cut -d " " -f2 | cut -d: -f1 | cut -d@ -f1); do if [ "$$device" != lo ]; then ethtool -K "$$device" gro off gso off tso off; fi; done; exec node bench/run.mjs']
+    environment:
+      BENCH_ENV: controlled
+      BASE_URL: https://172.29.81.2:4433
+      EXPERIMENT_TOKEN: ${EXPERIMENT_TOKEN:-local-experiment-token}
+      SERVER_QUOTA: '1 CPU / 1 GiB server; 4 CPU / 5 GiB clients'
+      NETWORK_PROFILE: ${NETWORK_PROFILE:-baseline}
+      SUITES: ${SUITES:-edits}
+      BULK_BYTES: ${BULK_BYTES:-262144}
+      BULK_DOCUMENTS: ${BULK_DOCUMENTS:-4}
+      SIZES: ${SIZES:-65536,1048576,8388608}
+      CLIENTS: ${CLIENTS:-2,8,32,128}
+      REPETITIONS: ${REPETITIONS:-3}
+      WARMUP_SECONDS: ${WARMUP_SECONDS:-10}
+      MEASURE_SECONDS: ${MEASURE_SECONDS:-60}
+      OUTPUT: /app/results/controlled-${NETWORK_PROFILE:-baseline}.json
+    volumes: ['../results:/app/results']
+    networks: {clientnet: {ipv4_address: 172.29.82.2}}
+    depends_on: {server: {condition: service_started}}
+networks:
+  servernet: {ipam: {config: [{subnet: 172.29.81.0/24,gateway: 172.29.81.254}]}}
+  clientnet: {ipam: {config: [{subnet: 172.29.82.0/24,gateway: 172.29.82.254}]}}

@@ -1,0 +1,194 @@
+{
+  "description": "Analyst-chosen representative cities within the named regions. These are not AWS facility coordinates.",
+  "coordinate_source": "OpenStreetMap contributors via Nominatim; ODbL 1.0",
+  "aws_region_names_source": "https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html",
+  "regions": {
+    "ap-northeast-1": {
+      "label": "Tokyo",
+      "representative_city_query": "Tokyo, Japan",
+      "lat": 35.6768601,
+      "lon": 139.7638947,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Tokyo%2C+Japan&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 1543125,
+      "display_name": "\u6771\u4eac\u90fd, \u65e5\u672c",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "ap-northeast-2": {
+      "label": "Seoul",
+      "representative_city_query": "Seoul, South Korea",
+      "lat": 37.5666791,
+      "lon": 126.9782914,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Seoul%2C+South+Korea&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 2297418,
+      "display_name": "\uc11c\uc6b8\ud2b9\ubcc4\uc2dc, \ub300\ud55c\ubbfc\uad6d",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "ap-northeast-3": {
+      "label": "Osaka",
+      "representative_city_query": "Osaka, Japan",
+      "lat": 34.6937569,
+      "lon": 135.5014539,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Osaka%2C+Japan&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 358674,
+      "display_name": "\u5927\u962a\u5e02, \u5927\u962a\u5e9c, \u65e5\u672c",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "ap-south-1": {
+      "label": "Mumbai",
+      "representative_city_query": "Mumbai, India",
+      "lat": 19.054999,
+      "lon": 72.8692035,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Mumbai%2C+India&format=json&limit=1",
+      "osm_type": "node",
+      "osm_id": 16173235,
+      "display_name": "Mumbai, Mumbai Suburban District, Maharashtra, 400051, India",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "ap-southeast-1": {
+      "label": "Singapore",
+      "representative_city_query": "Singapore",
+      "lat": 1.357107,
+      "lon": 103.8194992,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Singapore&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 536780,
+      "display_name": "Singapore",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "ap-southeast-2": {
+      "label": "Sydney",
+      "representative_city_query": "Sydney, Australia",
+      "lat": -33.8698439,
+      "lon": 151.2082848,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Sydney%2C+Australia&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 5750005,
+      "display_name": "Sydney, New South Wales, Australia",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "ca-central-1": {
+      "label": "Montr\u00e9al",
+      "representative_city_query": "Montreal, Quebec, Canada",
+      "lat": 45.5031824,
+      "lon": -73.5698065,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Montreal%2C+Quebec%2C+Canada&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 1634158,
+      "display_name": "Montr\u00e9al, Agglom\u00e9ration de Montr\u00e9al, Montr\u00e9al (r\u00e9gion administrative), Qu\u00e9bec, Canada",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "eu-central-1": {
+      "label": "Frankfurt",
+      "representative_city_query": "Frankfurt am Main, Germany",
+      "lat": 50.1106444,
+      "lon": 8.6820917,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Frankfurt+am+Main%2C+Germany&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 62400,
+      "display_name": "Frankfurt am Main, Hessen, Deutschland",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "eu-north-1": {
+      "label": "Stockholm",
+      "representative_city_query": "Stockholm, Sweden",
+      "lat": 59.3251172,
+      "lon": 18.0710935,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Stockholm%2C+Sweden&format=json&limit=1",
+      "osm_type": "node",
+      "osm_id": 25929985,
+      "display_name": "Stockholm, Stockholms kommun, Stockholms l\u00e4n, 111 29, Sverige",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "eu-west-1": {
+      "label": "Dublin",
+      "representative_city_query": "Dublin, Ireland",
+      "lat": 53.3493795,
+      "lon": -6.2605593,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Dublin%2C+Ireland&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 1109531,
+      "display_name": "Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "eu-west-2": {
+      "label": "London",
+      "representative_city_query": "London, United Kingdom",
+      "lat": 51.5074456,
+      "lon": -0.1277653,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=London%2C+United+Kingdom&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 175342,
+      "display_name": "Greater London, England, United Kingdom",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "eu-west-3": {
+      "label": "Paris",
+      "representative_city_query": "Paris, France",
+      "lat": 48.8534951,
+      "lon": 2.3483915,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Paris%2C+France&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 71525,
+      "display_name": "Paris, \u00cele-de-France, France m\u00e9tropolitaine, France",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "sa-east-1": {
+      "label": "S\u00e3o Paulo",
+      "representative_city_query": "Sao Paulo, Brazil",
+      "lat": -23.5506507,
+      "lon": -46.6333824,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Sao+Paulo%2C+Brazil&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 298285,
+      "display_name": "S\u00e3o Paulo, Regi\u00e3o Sudeste, Brasil",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "us-east-1": {
+      "label": "N. Virginia",
+      "representative_city_query": "Ashburn, Virginia, United States",
+      "lat": 39.029784,
+      "lon": -77.4744148,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Ashburn%2C+Virginia%2C+United+States&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 4803074,
+      "display_name": "Ashburn, Loudoun County, Virginia, United States",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "us-east-2": {
+      "label": "Ohio",
+      "representative_city_query": "Columbus, Ohio, United States",
+      "lat": 39.9622601,
+      "lon": -83.0007065,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Columbus%2C+Ohio%2C+United+States&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 182706,
+      "display_name": "Columbus, Franklin County, Ohio, United States",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "us-west-1": {
+      "label": "N. California",
+      "representative_city_query": "San Francisco, California, United States",
+      "lat": 37.7879363,
+      "lon": -122.4075201,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=San+Francisco%2C+California%2C+United+States&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 111968,
+      "display_name": "San Francisco, California, United States",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    },
+    "us-west-2": {
+      "label": "Oregon",
+      "representative_city_query": "Boardman, Oregon, United States",
+      "lat": 45.839855,
+      "lon": -119.700583,
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Boardman%2C+Oregon%2C+United+States&format=json&limit=1",
+      "osm_type": "relation",
+      "osm_id": 186453,
+      "display_name": "Boardman, Morrow County, Oregon, United States",
+      "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+    }
+  }
+}

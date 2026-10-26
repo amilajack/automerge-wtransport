@@ -1,0 +1,21 @@
+{
+  "name": "automerge-wtransport",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "test": "node scripts/protocol-test.mjs && node scripts/correctness.mjs",
+    "bench": "node bench/run.mjs",
+    "demo": "node scripts/open-demo.mjs"
+  },
+  "dependencies": {
+    "@automerge/automerge": "3.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "24.9.1",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "vite": "7.3.7"
+  }
+}

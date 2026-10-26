@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Worldwide WebTransport vs WebSocket</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,sans-serif;background:light-dark(#f6f7f9,#14181e);color:light-dark(#16202a,#e1e7ef)}
+body{max-width:1450px;margin:auto;padding:24px}h1{font-size:28px;margin-bottom:8px}p{line-height:1.6;max-width:1100px}a{color:light-dark(#145aaa,#7db8fa)}
+.cards{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}.card{background:light-dark(white,#222a35);border:1px solid light-dark(#d9dfe6,#394453);border-radius:10px;padding:16px;min-width:190px}.card strong{display:block;font-size:24px;margin:6px 0}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:22px 0}select{font:inherit;padding:7px;border-radius:6px}.scroll{overflow:auto;background:light-dark(white,#1d2530);border-radius:8px}
+table{border-collapse:collapse;width:100%;white-space:nowrap;font-size:14px}th,td{text-align:right;padding:11px 13px;border-bottom:1px solid light-dark(#e5e9ef,#354050)}th:first-child,td:first-child{text-align:left}th{font-size:12px}small{display:block;opacity:.7}.positive{color:light-dark(#116748,#7cddaf)}.negative{color:light-dark(#ad3d20,#ffac91)}.note{font-size:13px;opacity:.85}img{max-width:100%;height:auto}summary{cursor:pointer;font-weight:600;margin:20px 0}
+</style></head><body>
+<h1>Worldwide WebTransport vs WebSocket</h1>
+<p id="scope"></p><p class="note" id="verification"></p><div class="cards" id="cards"></div>
+<p>Application request/reply RTT through the <strong>Northern California relay</strong>, including Automerge synchronization and durable snapshot writes. Both transports use the same Rust workload, TLS 1.3 certificate, queues and persistence. Transports run separately with fresh data directories, reversing order each repetition.</p>
+<div class="controls"><label>Sender <select id="source"></select></label><label>Sort by <select id="sort"><option value="direct_great_circle_km">Direct distance</option><option value="via_relay_great_circle_km">Distance via relay</option><option value="webtransport_p50_ms">WebTransport median</option><option value="websocket_p50_ms">WebSocket median</option><option value="wt_median_reduction_percent">WT reduction (%)</option></select></label><a href="comparison.csv" download>Download all pairs CSV</a><a href="REPORT.md">Method and limitations</a></div>
+<p class="note">Distances are approximate one-way great-circle lengths between representative cities. “Via relay” adds both geographic legs through Northern California; RTT includes the return exchange. These are not datacenter coordinates or measured network routes. Positive reduction means lower WebTransport median latency.</p>
+<div class="scroll"><table><thead><tr><th>Responder</th><th>Direct km</th><th>Via relay km</th><th>WT median ms</th><th>WSS median ms</th><th>WT p95 ms</th><th>WSS p95 ms</th><th>WT reduction</th><th>Converged WT / WSS</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="note" id="tails"></p>
+<details><summary>Worldwide matrices and distance chart</summary><a href="comparison-matrices.svg"><img src="comparison-matrices.png" alt="WebTransport and WebSocket median latency matrices and relative difference"></a><a href="distance-latency.svg"><img src="distance-latency.png" alt="Application latency against approximate geographic distance via the relay"></a></details>
+<p class="note">© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, ODbL 1.0. <a href="region-city-proxies.json">City coordinate provenance</a>. Failed attempts remain in the raw results; percentiles use successful observations. This workload does not establish bulk throughput, browser performance, or stream-isolation behavior.</p>
+<script id="data" type="application/json">__BENCHMARK_DATA__</script>
+<script>
+const data=JSON.parse(document.getElementById('data').textContent),{metadata:m,overview:o}=data;
+const fmt=(n,d=1)=>n===null||n===undefined?'—':n.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
+document.getElementById('scope').textContent=`${m.regions.length} AWS regions · ${o.region_pairs} directed pairs · ${m.repetitions} repetitions per transport · ${o.complete_pairs} fully converged pairs`;
+for(const [t,name] of [['webtransport','WebTransport'],['websocket','WebSocket']]){const x=o.totals[t];if(!x)continue;const c=document.createElement('div');c.className='card';c.innerHTML=`${name} pooled median<strong>${fmt(x.pooled_p50_ms)} ms</strong><small>${x.passed}/${x.attempts} attempts passed · ${x.samples.toLocaleString()} RTTs</small>`;document.getElementById('cards').append(c)}
+const v=data.verification??{};document.getElementById('verification').textContent=[v['snapshot-verification']?.passed?`${v['snapshot-verification'].documents} persisted snapshots independently verified`:null,v.durability?.passed?'Fresh-client check after relay restart passed':null,v.terraform_state_empty?'Cloud resources cleaned up; results retained locally':null].filter(Boolean).join(' · ');
+const src=document.getElementById('source'),sort=document.getElementById('sort');
+for(const region of m.regions){const option=document.createElement('option');option.value=region;option.textContent=`${data.regions[region].label} (${region})`;src.append(option)}
+src.value=m.regions.includes('us-west-1')?'us-west-1':m.regions[0];
+function render(){const rows=data.rows.filter(r=>r.source_region===src.value).sort((a,b)=>(a[sort.value]??Infinity)-(b[sort.value]??Infinity));document.getElementById('rows').replaceChildren();
+for(const r of rows){const tr=document.createElement('tr');const reduction=r.wt_median_reduction_percent;tr.innerHTML=`<td>${r.destination_label}<small>${r.destination_region}</small></td><td>≈${fmt(Math.round(r.direct_great_circle_km/50)*50,0)}</td><td>≈${fmt(Math.round(r.via_relay_great_circle_km/50)*50,0)}</td><td>${fmt(r.webtransport_p50_ms)}</td><td>${fmt(r.websocket_p50_ms)}</td><td>${fmt(r.webtransport_p95_ms)}</td><td>${fmt(r.websocket_p95_ms)}</td><td class="${reduction>5?'positive':reduction< -5?'negative':''}">${fmt(reduction)}%</td><td>${r.webtransport_passed??0}/${r.webtransport_attempts??0} · ${r.websocket_passed??0}/${r.websocket_attempts??0}</td>`;document.getElementById('rows').append(tr)}}
+src.addEventListener('change',render);sort.addEventListener('change',render);render();
+document.getElementById('tails').textContent=`Each complete cell has ${m.samples*m.repetitions} measured RTTs per transport; p95/p99 estimates are coarse. ${m.warmup} warmups per attempt excluded. Pooled summaries combine different geographic paths. Measurements started ${m.at}.`;
+</script></body></html>

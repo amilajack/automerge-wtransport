@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Automerge · Transport lab</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">EXPERIMENT 01 / AUTOMERGE</p>
+        <h1>One document.<br />Two ways to connect.</h1>
+        <p class="subtitle">
+          Compare reliable WebTransport streams and WebSockets with the same
+          durable sync engine.
+        </p>
+      </header>
+      <section class="connection">
+        <label
+          >Transport<select id="transport">
+            <option value="wt">WebTransport / QUIC</option>
+            <option value="ws">WebSocket / TLS</option>
+          </select></label
+        ><label
+          >Experiment token<input
+            id="token"
+            type="password"
+            autocomplete="off"
+            placeholder="Enter the server token" /></label
+        ><button id="connect">Connect</button
+        ><button id="disconnect" class="secondary">Disconnect</button
+        ><output id="status" role="status">disconnected</output>
+      </section>
+      <section class="workspace">
+        <aside>
+          <div class="row">
+            <h2>Documents</h2>
+            <button id="create" aria-label="Create document">+</button>
+          </div>
+          <nav id="documents"></nav>
+          <label
+            >Open document UUID<input
+              id="documentId"
+              placeholder="Paste a shared document UUID" /></label
+          ><button id="open" class="secondary">Open document</button>
+        </aside>
+        <article>
+          <div class="row">
+            <h2 id="title">Create or open a document</h2>
+            <button id="share" class="secondary">Copy share link</button>
+          </div>
+          <textarea
+            id="text"
+            spellcheck="false"
+            aria-label="Collaborative document"
+            placeholder="Your edits are saved locally, including while disconnected."
+            disabled
+          ></textarea>
+          <footer>
+            <span id="details">Local storage: IndexedDB</span
+            ><span>Raw Automerge sync · protocol v1</span>
+          </footer>
+        </article>
+      </section>
+      <p id="error" role="alert"></p>
+    </main>
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>
